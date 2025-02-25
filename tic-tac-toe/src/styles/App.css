@@ -53,3 +53,51 @@ h1 {
 .square:active {
   background: #333;
 }
+
+.rocket {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 3rem;
+  animation: fly 5s linear infinite;
+}
+
+@keyframes fly {
+  0% {
+    left: 0;
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    left: 100%;
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.rocket.X {
+  color: #ff0000;
+}
+
+.rocket.O {
+  color: #0000ff;
+}
+
+.restart-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #00ff00;
+  background: #111;
+  border: 1px solid #444;
+  cursor: pointer;
+  outline: none;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  transition: background 0.3s;
+}
+
+.restart-button:hover {
+  background: #222;
+}
+
+.restart-button:active {
+  background: #333;
+}

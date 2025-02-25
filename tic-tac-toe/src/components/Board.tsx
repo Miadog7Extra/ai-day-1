@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import Square from './Square';
 
-const Board: React.FC = () => {
+interface BoardProps {
+  onWin: (winner: string) => void;
+}
+
+const Board: React.FC<BoardProps> = ({ onWin }) => {
   const [squares, setSquares] = useState(Array(9).fill(''));
   const [xIsNext, setXIsNext] = useState(true);
 
@@ -13,6 +17,11 @@ const Board: React.FC = () => {
     newSquares[index] = xIsNext ? 'X' : 'O';
     setSquares(newSquares);
     setXIsNext(!xIsNext);
+
+    const winner = calculateWinner(newSquares);
+    if (winner) {
+      onWin(winner);
+    }
   };
 
   const renderSquare = (index: number) => {
